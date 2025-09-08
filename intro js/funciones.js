@@ -1,22 +1,24 @@
+// function declaration
 
-//function declaration
 function saludar(nombre) {
-    console.log("Bienvenido, " + nombre + "!")
+    console.log("Bienvenido, " + nombre + "!");
 }
 
-saludar("Tito");
+saludar("Ernesto");
 
-//function expresion
+
+// function expression
+
 const cliente = function(nombreCliente, edadCliente) {
-    console.log("Mostrando datos del ciente: Nombre: " + nombreCliente + ", Edad: " + edadCliente)
+    console.log("Mostrando datos del cliente: " + nombreCliente + ", Edad: " + edadCliente);
 }
 
-cliente("Juan", 20);
+cliente("Juan", "25");
 
-function actividad(nombre = "Walter White", nombreActividad = "Profesor de quimica") {
-    console.log(`El cliente ${nombre} esta realizando la actividad: ${nombreActividad}`)
+function actividad(nombre = 'Walter White', nombreActividad = 'Profesor de Química') {
+    console.log(`El cliente ${nombre} está realizando la actividad: ${nombreActividad}`);
 }
 
-actividad("Juan", "programacion en JavaScript");
-actividad("Ernesto", "desarrollo web");
-actividad(); //parametros por defecto
+actividad("Ernesto", "programación en JavaScript");
+actividad("Juan", "desarrollo web");
+actividad(); // Usando valores por defecto

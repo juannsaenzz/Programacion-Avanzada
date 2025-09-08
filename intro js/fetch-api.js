@@ -1,20 +1,19 @@
 
-const API_KEY = 'your_api_key_here';
 
-const peticion = fetch(`https://api.example.com/data?api_key=${API_KEY}`);  
+const API_KEY = 'H34PGip1gUHR5Uzn7j9B5hUP30a4qELj'
 
-peticion
-    .then(resp => resp.json())  
-    .then(data => {
-        const {url} = data.images.original;
+const peticion = fetch(`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`)
 
-        const img = document.createElement('img');
-        img.src = url;  
-        document.body.append(img);
+peticion.then(resp => resp.json() )
+       .then(({ data }) => {
+         const { url } = data.images.original;
 
-        console.log(url);  
-    })  
-    .catch(console.warn);
+         const img = document.createElement('img');
+         img.src = url
+         document.body.append(img)
+         
+           console.log(url);
+       })
+         .catch(console.warn)
 
     // esto se conoce como promesas en cadena
-

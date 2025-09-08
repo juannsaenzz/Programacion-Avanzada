@@ -1,21 +1,22 @@
-//metodos de arrays
+//metodos en arrays
 
 const personas = [
-    {nombre: 'juan', edad: 23, aprendiendo: 'JavaScript'},
-    {nombre: 'juan', edad: 21, aprendiendo: 'HTML'}, 
-    {nombre: 'pedro', edad: 25, aprendiendo: 'CSS '},
-    {nombre: 'maria', edad: 20, aprendiendo: 'Python'},
-    {nombre: 'luis', edad: 24, aprendiendo: 'React'},
+    { nombre: "Juan", edad: 25, aprendiendo: 'javascript' },
+    { nombre: "Ana", edad: 30, aprendiendo: 'python' },
+    { nombre: "Ana", edad: 28, aprendiendo: 'java' },
+    { nombre: "Maria", edad: 35, aprendiendo: 'c#' },
+    { nombre: "Luis", edad: 22, aprendiendo: 'javascript' }
 ]
 
-console.log(personas);
+const personas2 = [
+    { nombre: "Joaquin", edad: 25, aprendiendo: 'javascript' },
+    { nombre: "Pedro", edad: 30, aprendiendo: 'python' },
+    { nombre: "Rosa", edad: 28, aprendiendo: 'java' },
+    { nombre: "Luis", edad: 35, aprendiendo: 'c#' },
+    { nombre: "Mario", edad: 22, aprendiendo: 'javascript' }
+]
 
-// funcion para filtrar mayores de 22 años
+// console.log(personas);
 
-const mayores = personas.filter(persona => persona.edad > 22);
-console.log(mayores);   
-
-const juanes = personas.filter(persona => persona.nombre === 'juan');
-console.log(juanes);
-
-
+// funcion para FILTRAR mayores de 28 entre los dos objetos
+const mayores = [...personas, ...personas2].filter(persona => persona.edad > 28);

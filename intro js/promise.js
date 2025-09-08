@@ -1,4 +1,5 @@
 
+
 // Promises
 //Resovle => ejecuta el llamoo al Promise cuando el llamado es correcto
 // Reject => cuando hay un error
