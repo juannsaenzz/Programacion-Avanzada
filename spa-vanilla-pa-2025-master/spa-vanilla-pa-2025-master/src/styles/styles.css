@@ -120,3 +120,25 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* Character detail page styles */
+.Characters-inner .Characters-card h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.Characters-inner .Characters-card h3 span {
+  font-weight: 300;
+  color: #666;
+}
+
+.Error {
+  text-align: center;
+  padding: 40px;
+  color: #e74c3c;
+  font-size: 18px;
+}

@@ -17,7 +17,18 @@ const router = async () => {
     header.innerHTML = await Header();
 
     const hash = location.hash.slice(1).toLowerCase() || '/';
-    let render = routes[hash] ? routes[hash] : Error404;
+    
+    // Handle dynamic routes
+    let render;
+    if (hash === '/') {
+        render = routes['/'];
+    } else if (hash.match(/^\/\d+$/)) {
+        // If hash matches pattern /{number}, use Character route
+        render = routes['/:id'];
+    } else {
+        render = Error404;
+    }
+    
     content.innerHTML = await render();
 }
 
