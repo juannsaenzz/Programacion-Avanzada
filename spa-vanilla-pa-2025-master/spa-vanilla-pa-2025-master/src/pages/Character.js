@@ -1,32 +1,38 @@
 import getData from '../utils/getData';
 
 const Character = async () => {
-    const id = location.hash.slice(2); // Remove #/ from hash
-    const character = await getData(id);
-    
-    if (!character) {
-        return `<div class="Error">Character not found</div>`;
-    }
+  const id = location.hash.slice(2); // obtiene el id desde la URL
+  const launches = await getData();  // devuelve array de lanzamientos
+  const launch = launches.find(l => l.id === id);
 
-    const view = `
-    <div class="Characters-inner">
-        <article class="Characters-card">
-            <img src="${character.image}" alt="${character.name}">
-            <h2>${character.name}</h2>
-        </article>
+  if (!launch) {
+    return `<div class="Error">Lanzamiento no encontrado</div>`;
+  }
 
-        <article class="Characters-card">
-            <h3>Episodes: <span>${character.episode ? character.episode.length : 0}</span></h3>
-            <h3>Status: <span>${character.status}</span></h3>
-            <h3>Species: <span>${character.species}</span></h3>
-            <h3>Gender: <span>${character.gender}</span></h3>
-            <h3>Origin: <span>${character.origin ? character.origin.name : 'Unknown'}</span></h3>
-            <h3>Location: <span>${character.location ? character.location.name : 'Unknown'}</span></h3>
-        </article>
+  const fallas = launch.failures.length
+    ? launch.failures.map(f =>
+        `Tiempo: ${f.time ?? "-"} seg, Altitud: ${f.altitude ?? "-"} m, Razón: ${f.reason ?? "-"}`
+      ).join('<br>')
+    : "Ninguna";
+
+  const view = `
+    <div class="Launch-inner">
+      <article class="Launch-card">
+        <img src="${launch.links.patch.large || 'assets/placeholder.png'}" alt="${launch.name}">
+        <h2>${launch.name}</h2>
+      </article>
+
+      <article class="Launch-card">
+        <h3><b>Vuelo:</b> <span>${launch.flight_number}</span></h3>
+        <h3><b>Fecha:</b> <span>${new Date(launch.date_utc).toLocaleString()}</span></h3>
+        <p><b>Detalles:</b> ${launch.details ?? "Sin detalles"}</p>
+        <p><b>Fallas:</b><br>${fallas}</p>
+      </article>
     </div>
-    `;
-    
-    return view;
+  `;
+
+  return view;
 };
 
 export default Character;
+
