@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Flybondi – Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html">
+       <img src="./assets/flybondi-logo.svg" alt="Flybondi" class="logo">
+    </a>
+  </header>
+
+  <section class="controls">
+    <label for="origin">Origen:</label>
+    <select id="origin">
+      <option value="">Seleccionar</option>
+    </select>
+
+    <label for="destination">Destino:</label>
+    <select id="destination">
+      <option value="">Seleccionar</option>
+    </select>
+
+    <label for="pax">Pasajeros:</label>
+    <input id="pax" type="number" min="1" placeholder="Ej: 2">
+
+    <label for="dateFrom">Ida:</label>
+    <input id="dateFrom" type="date">
+
+    <label for="dateTo">Vuelta:</label>
+    <input id="dateTo" type="date">
+
+    <button id="search">Buscar</button>
+  </section>
+
+  <section id="info"></section>
+  <main id="results"></main>
+
+  <script src="app.js" type="module"></script>
+  
+</body>
+</html>

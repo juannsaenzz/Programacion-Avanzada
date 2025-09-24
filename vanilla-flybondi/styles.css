@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f6fa;
+  color: #333;
+}
+
+/* HEADER */
+.header {
+  background: #ffcc00;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header .logo {
+  height: 40px;
+}
+
+/* CONTROLES */
+.controls {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap; /* que no se corte en pantallas chicas */
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.controls label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.controls input,
+.controls select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 150px;
+  background: #fff;
+}
+
+button {
+  padding: 0.5rem 1.2rem;
+  background: #ffcc00;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #ffdb4d;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* INFO */
+#info {
+  text-align: center;
+  margin: 1rem;
+  font-weight: 500;
+  color: #15302C;
+  font-size: 1rem;
+}
+
+/* GRID RESULTADOS */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center; 
+  justify-items: center;
+}
+
+/* CARDS */
+.card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  background: #ffdb4d;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #15302C;
+}
+
+.card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.price {
+  font-weight: 600;
+  color: #e67e22;
+  font-size: 1.05rem;
+  margin-top: 0.8rem;
+}
+
+/* MENSAJES (inicial, error, vacío) */
+.message {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 30px 20px;
+  max-width: 500px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+  /* centrar en pantalla */
+  margin: 80px auto;
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.message.info {
+  background: #fffdf3;
+  border: 1px solid #ffe580;
+  color: #444;
+}
+
+.message.error {
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  color: #555;
+}
+
+.message.error h3 {
+  margin-top: 0;
+  color: #666;
+  font-weight: 600;
+}
+
+/* ERROR INLINE */
+.error-msg {
+  color: #666;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* BOTÓN "Cargar más" */
+.load-more {
+  display: block;
+  margin: 25px auto 50px auto;
+  padding: 0.7rem 1.6rem;
+  background: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.load-more:hover {
+  background: #ffdb4d;
+  transform: translateY(-2px);
+}
+
+/* MODAL */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #15302C;
+}
+
+.modal-content p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.modal-content .price {
+  color: #e67e22;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+.close {
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #e74c3c;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
