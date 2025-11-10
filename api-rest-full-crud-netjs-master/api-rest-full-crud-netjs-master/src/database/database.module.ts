@@ -7,7 +7,7 @@ const dbProvider = {
     const pool = new Pool({
       user: 'postgres',           
       host: 'localhost',          
-      database: 'tp6',  
+      database: 'tp6_progavanz',  
       password: 'postgres',       
       port: 5432,           
     });
